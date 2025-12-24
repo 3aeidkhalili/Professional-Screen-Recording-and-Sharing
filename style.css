@@ -1,0 +1,524 @@
+:root {
+  /* Professional dark UI palette */
+  --bg: #0b1220;
+  --bg2: #0f1a33;
+  --panel-bg: rgba(17, 25, 40, 0.72);
+  --panel-solid: rgba(17, 25, 40, 0.92);
+  --border: rgba(255, 255, 255, 0.09);
+  --border2: rgba(255, 255, 255, 0.14);
+
+  --text: rgba(255,255,255,0.93);
+  --muted: rgba(255,255,255,0.66);
+  --muted2: rgba(255,255,255,0.46);
+
+  --primary: #4f8cff;
+  --primary-hover: #2f74ff;
+  --danger: #ff4d5e;
+  --danger-hover: #ff2f44;
+  --ok: #24d08b;
+  --warn: #ffcc66;
+
+  --shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.35);
+  --radius: 18px;
+
+  --focus: 0 0 0 4px rgba(79, 140, 255, 0.25);
+
+  --font-family: 'Vazirmatn', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(900px 520px at 12% 8%, rgba(79, 140, 255, 0.18) 0px, transparent 55%),
+    radial-gradient(900px 520px at 88% 10%, rgba(36, 208, 139, 0.14) 0px, transparent 58%),
+    radial-gradient(1000px 650px at 30% 95%, rgba(139, 92, 246, 0.10) 0px, transparent 58%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 44px 18px;
+}
+
+.app {
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Header */
+.header {
+  margin-bottom: 30px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: white;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.sub {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Panel */
+.panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)), var(--panel-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+  margin-bottom: 22px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Status Cards */
+.status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 14px;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.status:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.055);
+  border-color: var(--border2);
+}
+
+.status-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--warn);
+  transition: all 0.3s ease;
+}
+
+.status-icon.ok {
+  color: var(--ok);
+  background: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+.status-icon.danger {
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.statusTitle {
+  font-size: 13px;
+  color: var(--muted2);
+  margin-bottom: 4px;
+}
+
+.statusValue {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Main Toggle (Switch) */
+/* Present in HTML but not needed (we use the checkbox as the switch) */
+.toggle-slider { display: none; }
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  padding: 16px;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 14px;
+  transition: all 0.3s;
+}
+
+.toggle:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.toggle input {
+  appearance: none;
+  width: 54px;
+  height: 30px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.toggle input::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 4px; /* RTL fix */
+  width: 22px;
+  height: 22px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 50%;
+  transition: 0.25s;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+}
+
+.toggle input:checked {
+  background: rgba(79, 140, 255, 0.95);
+  border-color: rgba(79, 140, 255, 0.35);
+}
+
+.toggle input:checked::after {
+  right: 28px; /* RTL fix */
+}
+
+.toggle-label strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.toggle-label small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Options Row */
+.settings-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.toggle-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.toggle-option:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.toggle-option input {
+  transform: scale(1.2);
+  accent-color: var(--primary);
+}
+
+.toggle-option input:checked + span {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Buttons */
+.btnRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  padding: 12px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 650;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.btn i {
+  font-size: 16px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, rgba(79, 140, 255, 1), rgba(139, 92, 246, 0.95));
+  color: white;
+  box-shadow: 0 10px 26px rgba(79, 140, 255, 0.22);
+  border-color: rgba(79, 140, 255, 0.35);
+}
+
+.btn.primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 34px rgba(79, 140, 255, 0.28);
+}
+
+.btn.danger {
+  background: rgba(255, 77, 94, 0.10);
+  color: rgba(255, 122, 133, 1);
+  border: 1px solid rgba(255, 77, 94, 0.28);
+}
+
+.btn.danger:hover:not(:disabled) {
+  background: rgba(255, 77, 94, 0.18);
+  transform: translateY(-1px);
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn.secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--border2);
+}
+
+/* Status & Pills */
+.recordStatus {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.pill {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: monospace;
+  border: 1px solid transparent;
+}
+
+.pill.on {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--ok);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.pill.off {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted2);
+  border-color: var(--border);
+}
+
+.recordHint {
+  font-size: 12px;
+  color: var(--muted2);
+  font-style: italic;
+}
+
+/* Preview Section */
+.preview {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.previewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.previewHeader h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta {
+  color: var(--muted);
+  font-family: monospace;
+  font-size: 12px;
+  background: rgba(0,0,0,0.2);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.videoShell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #05070f;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: radial-gradient(400px 200px at 50% 40%, rgba(79, 140, 255, 0.10), transparent 60%);
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--muted);
+  text-align: center;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(5,7,15,0.55), rgba(5,7,15,0.85));
+}
+
+.placeholder-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* Recording Indicator Overlay */
+.recording-indicator {
+  position: absolute;
+  top: 16px;
+  right: 16px; /* RTL */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+
+.red-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--danger);
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* Footer */
+.footer {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--muted2);
+  font-size: 13px;
+}
+
+/* Focus-visible for accessibility */
+.btn:focus-visible,
+.toggle input:focus-visible,
+.toggle-option input:focus-visible {
+  box-shadow: var(--focus);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .btnRow {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+
+  .settings-row {
+    justify-content: center;
+  }
+}

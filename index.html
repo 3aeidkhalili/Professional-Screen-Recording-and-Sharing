@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ضبط و اشتراک‌گذاری صفحه حرفه‌ای</title>
+
+  <!-- Vazirmatn Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-content">
+        <div class="icon-box">
+          <i class="fa-solid fa-display"></i>
+        </div>
+        <div>
+          <h1>ضبط و اشتراک‌گذاری صفحه</h1>
+          <p class="sub">ابزار حرفه‌ای برای اشتراک‌گذاری و ضبط محتوای صفحه‌نمایش با رابط کاربری زیبا و سریع</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="row">
+        <div class="status">
+          <div class="status-icon" id="supportDot"><i class="fa-solid fa-check"></i></div>
+          <div>
+            <div class="statusTitle">وضعیت سیستم</div>
+            <div class="statusValue" id="supportText">در حال بررسی…</div>
+          </div>
+        </div>
+
+        <div class="status">
+          <div class="status-icon" id="enabledDot"><i class="fa-solid fa-power-off"></i></div>
+          <div>
+            <div class="statusTitle">وضعیت اتصال</div>
+            <div class="statusValue" id="enabledText">خیر</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label class="toggle">
+          <input type="checkbox" id="enabledToggle" />
+          <span class="toggle-slider"></span>
+          <div class="toggle-label">
+            <strong>فعال‌سازی اشتراک‌گذاری</strong>
+            <small>برای شروع تیک بزنید</small>
+          </div>
+        </label>
+
+        <div class="settings-row">
+          <label class="toggle-option">
+            <input type="checkbox" id="videoToggle" checked />
+            <span><i class="fa-solid fa-video"></i> ویدئو</span>
+          </label>
+
+          <label class="toggle-option">
+            <input type="checkbox" id="audioToggle" />
+            <span><i class="fa-solid fa-microphone"></i> صدا</span>
+          </label>
+
+          <label class="toggle-option">
+            <input type="checkbox" id="recordToggle" checked />
+            <span><i class="fa-solid fa-circle-record"></i> ضبط خودکار</span>
+          </label>
+        </div>
+
+        <div class="btnRow">
+          <button id="startBtn" class="btn primary">
+            <i class="fa-solid fa-play"></i> شروع اشتراک‌گذاری
+          </button>
+          <button id="stopBtn" class="btn danger" disabled>
+            <i class="fa-solid fa-stop"></i> توقف
+          </button>
+          <button id="pickFolderBtn" class="btn secondary">
+            <i class="fa-solid fa-folder-open"></i> انتخاب پوشه
+          </button>
+        </div>
+
+        <div class="recordStatus">
+          <span>وضعیت ضبط:</span>
+          <span class="pill" id="recordingText">خاموش</span>
+          <span class="recordHint" id="recordHint"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview">
+      <div class="previewHeader">
+        <h2><i class="fa-regular fa-eye"></i> پیش‌نمایش زنده</h2>
+        <div class="meta" id="trackMeta">بدون استریم</div>
+      </div>
+
+      <div class="videoShell">
+        <video id="previewVideo" autoplay playsinline muted></video>
+        <div class="placeholder" id="placeholder">
+          <div class="placeholder-icon">
+            <i class="fa-solid fa-film"></i>
+          </div>
+          <p>برای مشاهده پیش‌نمایش، دکمه شروع را فشار دهید.</p>
+        </div>
+        
+        <!-- Recording Indicator Animation -->
+        <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+          <div class="red-dot"></div>
+          <span>REC</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>طراحی شده با تکنولوژی WebRTC & MediaRecorder</p>
+    </footer>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
